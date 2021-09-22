@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev":   "nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [
     "Travel"
@@ -19,7 +19,7 @@
     "module-alias": "^2.2.2",
     "sequelize": "^6.6.5"
   },
-  "_moduleAliases":{
+  "_moduleAliases": {
     "@routes": "src/routes",
     "@controller": "src/controllers"
   }
