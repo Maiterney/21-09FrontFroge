@@ -1,0 +1,39 @@
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3vh 0;
+    .leftNav {
+        display: flex;
+        align-items: center;
+        .logo {
+        
+        }
+        .navLinks {
+            list-style: none;
+            display: flex;
+            li{
+                margin: 0 15px;
+                a {
+                    position: relative;
+                    color: #fff;
+                    text-decoration: none;
+                    &:after {
+                        position: absolute;
+                        content: "";
+                        width: 0px;
+                        height: 2px;
+                        background: #fff;
+                        left: 0;
+                        bottom: -8px;                        
+                    }
+                    &:hover {
+                        &:after {
+                            width: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
