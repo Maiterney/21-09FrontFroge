@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 exports.getListFiles = (req, res) => {
     const directoryPath = __basedir + "/src/static/assets/uploads/";
   

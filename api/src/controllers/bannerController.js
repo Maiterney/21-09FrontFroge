@@ -3,8 +3,10 @@ const uploadFile = require('../middlewares/BannerUpload');
 
 exports.createItem = async (req, res, next) => {
 
-    const { chose, title, description } = req.body;
-    let bsrc = req.file.originalname;
+    console.log(req)
+
+    const { chose, title, description } = req;
+    let bsrc = req.file;
 
     //try upload image
     try{
@@ -31,12 +33,12 @@ exports.createItem = async (req, res, next) => {
     }
 
     if(chose != '' && title != '' && description != ''){
-        const StatusBanner = await BannerService.createItem(
-            chose,
-            bsrc,
-            title,
-            description
-        );
+        // const StatusBanner = await BannerService.createItem(
+        //     chose,
+        //     bsrc,
+        //     title,
+        //     description
+        // );
 
         res.status(200).json({
             message: `File: ${req.file.originalname} uploaded successfully, ${StatusBanner}`,
