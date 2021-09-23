@@ -1,3 +1,4 @@
+require('dotenv').config();
 const fs = require('fs');
 
 exports.getListFiles = (req, res) => {
@@ -15,7 +16,7 @@ exports.getListFiles = (req, res) => {
       files.forEach((file) => {
         fileInfos.push({
           name: file,
-          url: baseUrl + file,
+          url: process.env.BASE_URL + file,
         });
       });
   

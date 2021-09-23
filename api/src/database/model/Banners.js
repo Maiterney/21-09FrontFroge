@@ -13,7 +13,7 @@ const Banner = sequelize.define("Banner", {
         type: DataTypes.STRING,
         allowNull: true
     },
-    bannerSrc: {
+    bannerSourc: {
         type: DataTypes.STRING,
         allowNull: true
     },
