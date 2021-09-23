@@ -1,0 +1,27 @@
+.banners {
+    .swiper {
+        width: 90%;
+        .swiper-slide img {
+            width: 80%;
+            border-radius: 25px;
+            border: 1px solid #3f3d3f;
+        }
+    }  
+    .slider {
+        .swiper-button-next, .swiper-button-prev {
+            border: 1px solid #fff;
+            padding: 20px;
+            border-radius: 30px;
+            color: #fff;
+            &::after {
+                font-size: 18px;
+            }
+        }
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            
+        }
+    }
+}
+

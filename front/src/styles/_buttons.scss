@@ -1,0 +1,14 @@
+.btn {
+    &.btn-first {
+        background-color: #fff;
+        color: #000;
+        font-weight: bold;
+        
+        &:focus-visible {
+            outline: none;
+        }
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}

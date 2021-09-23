@@ -12,12 +12,11 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background: var(--bg-one);
-}
-
-.container {
-  padding: 0 8vw;
+  background-color: var(--bg-one) !important;
 }
 
 
+@import './buttons';
 @import './header';
+@import './banners';
+@import './search';
