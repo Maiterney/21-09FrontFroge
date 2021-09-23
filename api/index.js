@@ -1,6 +1,8 @@
 require('dotenv').config();
 require('module-alias/register');
 
+global.__basedir = __dirname;
+
 const http = require('http');
 const port = process.env.PORT || 5000;
 
