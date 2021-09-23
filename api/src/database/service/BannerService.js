@@ -8,10 +8,12 @@ exports.addBanner = async (bannerChose, bannerSrc, bannerTitle, bannerDescriptio
 
         const createBanner = await Banner.create({
             bannerChose: bannerChose,
-            bannerSrc: bannerSrc,
+            bannerSourc: bannerSrc,
             bannerTitle: bannerTitle,
             bannerDescription: bannerDescription
         });
+
+        return createBanner;
 
 
     } catch ( error ) {
