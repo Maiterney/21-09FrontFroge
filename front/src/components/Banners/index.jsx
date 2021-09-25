@@ -10,6 +10,24 @@ import "swiper/css/effect-coverflow"
 
 
 const Banners = (props) => {
+  const banners = [
+    {
+      id: 1,
+      banner: 'https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg',
+    },
+    {
+      id: 2,
+      banner: 'https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg',
+    },
+    {
+      id: 3,
+      banner: 'https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg',
+    },
+    {
+      id: 4,
+      banner: 'https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg',
+    },
+  ]
   return (
     <section className="banners">
       <div className="container-fluid">
@@ -22,16 +40,21 @@ const Banners = (props) => {
   "modifier": 1,
   "slideShadows": true
 }}className="slider">
-              <SwiperSlide><img src="https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg" alt="" /></SwiperSlide>
-              <SwiperSlide><img src="https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg" alt="" /></SwiperSlide>
-              <SwiperSlide><img src="https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg" alt="" /></SwiperSlide>
-              <SwiperSlide><img src="https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg" alt="" /></SwiperSlide>
+              {banners.map(dados => (
+                <SwiperSlide key={dados.id}><img src={dados.banner} alt="" /></SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>
       </div>
     </section>
   );
+}
+
+
+Banners.getInitialProps = async() => {
+  /* const response = await axios.get('http://localhost:8000/offers');
+  return{ dados : response} */
 }
 
 export default Banners;
