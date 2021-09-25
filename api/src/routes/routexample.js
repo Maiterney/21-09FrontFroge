@@ -10,6 +10,7 @@ router.get('/listar/banners', item.getItems);
 router.get('/banner/:id', item.getThisItem)
 router.get('/files', fileController.getListFiles);
 router.get('/files/:name', fileController.importBanner);
+router.get('/files/:name/download', fileController.download);
 
 module.exports = router;
 

@@ -26,7 +26,7 @@ exports.getListFiles = (req, res) => {
 
 exports.importBanner = (req, res) => {
     const fileName = req.params.name;
-    const directoryPath = __basedir + "/src/static/assets/uploads";
+    const directoryPath = __basedir + "/src/static/assets/uploads/";
 
     res.status(200).json({
         bannerSrc: directoryPath + fileName
