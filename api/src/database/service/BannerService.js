@@ -1,17 +1,19 @@
 const database = require('../../config/config');
 const Banner = require('../model/Banners');
 
-exports.addBanner = async (bannerChose, bannerSrc, bannerTitle, bannerDescription) => {
+exports.addBanner = async (bannerChose, bannerSourc, bannerTitle, bannerDescription) => {
     try{
 
         const result = await database.sync();
 
         const createBanner = await Banner.create({
             bannerChose: bannerChose,
-            bannerSourc: bannerSrc,
+            bannerSourc: bannerSourc,
             bannerTitle: bannerTitle,
             bannerDescription: bannerDescription
         });
+
+        console.log(result, createBanner, 'banner cadastrado');
 
         return createBanner;
 
@@ -29,6 +31,9 @@ exports.callBanners = async () => {
         const result = await database.sync();
 
         const callBanners = await Banner.findAll();
+
+        console.log('call banners:', callBanners, result)
+
         return callBanners;
 
     } catch ( error ) {
@@ -43,9 +48,39 @@ exports.callThisBanner = async ( bannerId ) => {
 
         const result = await database.sync();
 
-        const callThisBanner = await Banner.findById( bannerId ).then(thisBanner => thisBanner);
+        const callThisBanner = await Banner.findByPk(bannerId).then(function(thisBanner){
+            if(!thisBanner){
+                return 'not found';
+            } 
+
+            return thisBanner;
+        });
+
+        console.log('this banner:', callThisBanner, result)
 
         return callThisBanner;          
+
+    } catch ( error ) {
+
+        console.log( error );
+
+    }
+}
+
+exports.deleteThisBanner = async ( bannerId ) => {
+    try{
+
+        const result = await database.sync();
+
+        const callThisBanner = await Banner.findByPk(bannerId).then(function(thisBanner){
+            if(!thisBanner){
+                return 'not found';
+            } 
+
+            thisBanner.destroy();
+        });
+
+        console.log('this banner has been deleted:', callThisBanner, result)
 
     } catch ( error ) {
 
