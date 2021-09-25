@@ -13,7 +13,7 @@ exports.addBanner = async (bannerChose, bannerSourc, bannerTitle, bannerDescript
             bannerDescription: bannerDescription
         });
 
-        console.log(result, createBanner, 'banner cadastrado');
+        //console.log(result, createBanner, 'banner cadastrado');
 
         return createBanner;
 
@@ -32,7 +32,7 @@ exports.callBanners = async () => {
 
         const callBanners = await Banner.findAll();
 
-        console.log('call banners:', callBanners, result)
+        //console.log('call banners:', callBanners, result)
 
         return callBanners;
 
@@ -56,7 +56,7 @@ exports.callThisBanner = async ( bannerId ) => {
             return thisBanner;
         });
 
-        console.log('this banner:', callThisBanner, result)
+        //console.log('this banner:', callThisBanner, result)
 
         return callThisBanner;          
 

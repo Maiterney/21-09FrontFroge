@@ -2,6 +2,8 @@ const BannerService = require('../database/service/BannerService');
 
 exports.createItem = async (req, res, next) => {
 
+    console.log(req.body);
+
     let { bannerdata } = req.body;
     let data = JSON.parse(bannerdata);
     const { chose, title, description } = data;
