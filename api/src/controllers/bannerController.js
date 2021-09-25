@@ -51,3 +51,11 @@ exports.getThisItem = async (req, res) => {
         Banner: Banner
     })
 }
+
+exports.destroyThisItem = async (req, res) => {
+    const Banner = await BannerService.deleteThisBanner(req.params.id);
+    let id = req.params.id;
+    res.status(200).json({
+        Banner: `Banner ${id} has been deleted`
+    })
+}
