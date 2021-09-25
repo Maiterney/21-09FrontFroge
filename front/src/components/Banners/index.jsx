@@ -9,7 +9,7 @@ SwiperCore.use([EffectCoverflow, Navigation]);
 import "swiper/css/effect-coverflow"
 
 
-const Banners = (props) => {
+const Banners = (dados) => {
   const banners = [
     {
       id: 1,
@@ -30,6 +30,7 @@ const Banners = (props) => {
   ]
   return (
     <section className="banners">
+      {console.log(dados)}
       <div className="container-fluid">
         <div className="row justify-content-center">
           <div className="col-md-10">
@@ -53,8 +54,8 @@ const Banners = (props) => {
 
 
 Banners.getInitialProps = async() => {
-  /* const response = await axios.get('http://localhost:8000/offers');
-  return{ dados : response} */
+  const response = await axios.get('https://frontfroge2109.herokuapp.com/listar/banners');
+  return{ dados : response}
 }
 
 export default Banners;

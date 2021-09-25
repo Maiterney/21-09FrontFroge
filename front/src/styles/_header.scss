@@ -26,11 +26,13 @@
                         height: 2px;
                         background: #fff;
                         left: 0;
-                        bottom: -8px;                        
+                        bottom: -8px;  
+                        transition: all .2 ease;                      
                     }
                     &:hover {
                         &:after {
                             width: 25px;
+                            transition: all .2 ease;
                         }
                     }
                 }
