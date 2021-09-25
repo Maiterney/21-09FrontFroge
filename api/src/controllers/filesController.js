@@ -2,7 +2,7 @@ require('dotenv').config();
 const fs = require('fs');
 
 exports.getListFiles = (req, res) => {
-    const directoryPath = __basedir + "/src/static/assets/uploads/";
+    const directoryPath = __basedir + "/src/static/assets/uploads/banners";
   
     fs.readdir(directoryPath, function (err, files) {
       if (err) {
@@ -26,7 +26,7 @@ exports.getListFiles = (req, res) => {
 
 exports.importBanner = (req, res) => {
     const fileName = req.params.name;
-    const directoryPath = __basedir + "/src/static/assets/uploads/";
+    const directoryPath = __basedir + "/src/static/assets/uploads/banners";
 
     var img = fs.readFileSync(directoryPath + fileName);
 
@@ -60,7 +60,7 @@ exports.importBanner = (req, res) => {
 
 exports.download = (req, res) => {
     const fileName = req.params.name;
-    const directoryPath = __basedir + "/src/static/assets/uploads/";
+    const directoryPath = __basedir + "/src/static/assets/uploads/banners";
   
     res.download(directoryPath + fileName, fileName, (err) => {
       if (err) {

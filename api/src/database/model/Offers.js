@@ -2,42 +2,45 @@ const { Sequelize, DataTypes } = require("sequelize");
 
 const sequelize = require('../../config/config');
 
-const Banner = sequelize.define("Banner", {
+const Offer = sequelize.define("Offer", {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    bannerChose: {
+    offerSource: {
         type: DataTypes.STRING,
         allowNull: true
     },
-    bannerSourc: {
+    offerTitle: {
         type: DataTypes.STRING,
         allowNull: true
     },
-    bannerTitle: {
+    offerRating: {
+        type: DataTypes.NUMBER,
+        allowNull: true
+    },
+    offerPrice: {
+        type: DataTypes.NUMBER,
+        allowNull: true
+    },
+    offerDescription: {
         type: DataTypes.STRING,
         allowNull: true
     },
-    bannerPrice: {
+    offerInfo: {
         type: DataTypes.STRING,
         allowNull: true
     },
-    bannerInfo: {
-        type: DataTypes.STRING,
-        allowNull: true
-    },
-    bannerDescription: {
-        type: DataTypes.TEXT,
-        allowNull: true
-    },
+    offerBlog: {
+        type: DataTypes.BOOLEAN,
+    }
 })
 
 //create table if not exists...
 const init = (async () => {
-    await Banner.sync();
+    await Offer.sync();
 })();
 
-module.exports = Banner;
+module.exports = Offer;
