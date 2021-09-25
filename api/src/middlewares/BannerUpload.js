@@ -6,10 +6,9 @@ const maxSize = 4 * 1024 * 1024;
 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, __dirname + "/src/static/assets/uploads");
+        cb(null, __basedir + "/src/static/assets/uploads");
     },
     filename: (req, file, cb) => {
-        console.log(file.originalname);
         cb(null, file.originalname);
     },
 });
@@ -17,8 +16,9 @@ let storage = multer.diskStorage({
 let uploadFile = multer({
     storage: storage,
     limits: { fileSize: maxSize }
-}).array("image");
+}).single('image');
 
 let uploadFileMiddleWareService = util.promisify(uploadFile);
+
 
 module.exports = uploadFileMiddleWareService;

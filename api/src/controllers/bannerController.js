@@ -1,47 +1,23 @@
 const BannerService = require('../database/service/BannerService');
-const uploadFile = require('../middlewares/BannerUpload');
 
 exports.createItem = async (req, res, next) => {
 
-    console.log(req)
+    let { bannerdata } = req.body;
+    let data = JSON.parse(bannerdata);
+    const { chose, title, description } = data;
 
-    const { chose, title, description } = req;
-    let bsrc = req.file;
-
-    //try upload image
-    try{
-
-        await uploadFile(req, res);
-
-        if( req.file == undefined ) {
-            return res.status(400).json({
-                message: "Please upload a file!"
-            })
-        }
-
-    } catch ( error ){
-
-        if (err.code == "LIMIT_FILE_SIZE") {
-            return res.status(500).send({
-              message: "File size cannot be larger than 4MB!",
-            });
-        }
-
-        res.status(500).json({
-            message: `Could not upload this file ${req.file.originalname}, ${err}`
-        })
-    }
+    let bsrc = req.file.originalname;
 
     if(chose != '' && title != '' && description != ''){
-        // const StatusBanner = await BannerService.createItem(
-        //     chose,
-        //     bsrc,
-        //     title,
-        //     description
-        // );
+        const StatusBanner = await BannerService.addBanner(
+            chose,
+            bsrc,
+            title,
+            description
+        );
 
         res.status(200).json({
-            message: `File: ${req.file.originalname} uploaded successfully, ${StatusBanner}`,
+            message: `File: ${bsrc} uploaded successfully, ${StatusBanner}`,
             bannerChose: chose,
             bannerSrc: bsrc,
             bannerTitle: title,
@@ -50,8 +26,8 @@ exports.createItem = async (req, res, next) => {
 
     } else {
 
-        res.status(200).json({
-            message: `File: ${req.file.originalname} uploaded successfully`,
+        res.status(400).json({
+            message: `File: ${bsrc} uploaded successfully, but fields are not added in database`,
             bannerChose: chose,
             bannerSrc: bsrc,
             bannerTitle: title,
@@ -73,5 +49,13 @@ exports.getThisItem = async (req, res) => {
     const Banner = await BannerService.callThisBanner(req.params.id);
     res.status(200).json({
         Banner: Banner
+    })
+}
+
+exports.destroyThisItem = async (req, res) => {
+    const Banner = await BannerService.deleteThisBanner(req.params.id);
+    let id = req.params.id;
+    res.status(200).json({
+        Banner: `Banner ${id} has been deleted`
     })
 }
