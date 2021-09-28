@@ -11,7 +11,7 @@ exports.createItem = async (req, res, next) => {
     let bsrc = req.file.originalname;
 
     if(chose != '' && title != '' && description != ''){
-        const StatusBanner = await BannerService.addBanner(
+        await BannerService.addBanner(
             chose,
             bsrc,
             title,
@@ -19,7 +19,7 @@ exports.createItem = async (req, res, next) => {
         );
 
         res.status(200).json({
-            message: `File: ${bsrc} uploaded successfully, ${StatusBanner}`,
+            message: `File: ${bsrc} uploaded successfully`,
             bannerChose: chose,
             bannerSrc: bsrc,
             bannerTitle: title,
@@ -29,7 +29,7 @@ exports.createItem = async (req, res, next) => {
     } else {
 
         res.status(400).json({
-            message: `File: ${bsrc} uploaded successfully, but fields are not added in database`,
+            message: `Database upload error`,
             bannerChose: chose,
             bannerSrc: bsrc,
             bannerTitle: title,

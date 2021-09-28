@@ -18,7 +18,7 @@ let uploadFile = multer({
     limits: { fileSize: maxSize }
 }).single('image');
 
-let uploadFileMiddleWareService = util.promisify(uploadFile);
+let uploadBanner = util.promisify(uploadFile);
 
 
-module.exports = uploadFileMiddleWareService;
+module.exports = uploadBanner;

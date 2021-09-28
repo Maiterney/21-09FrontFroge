@@ -1,0 +1,111 @@
+form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-md);
+    margin: 0 auto 0 auto;
+
+    box-shadow: 1px 0px 95px 19px rgba(255, 20, 53, 0.15);
+    //border-bottom: 1px solid rgba(32, 33, 37, .15);
+
+    input, textarea, select, label{
+        width: 45%;
+        padding: var(--space-sm) var(--space-md);
+        margin: var(--space-sm);
+        border:0;
+        background: transparent;
+        border-bottom: 1px solid rgba(32, 33, 37, .15);
+        color: var(--theme);
+        font-size: var(--space-md);
+        font-family: 'Open Sans', sans-serif;
+
+        &::placeholder{
+            color: var(--theme);
+            font-size: var(--space-md);
+        }
+    }
+
+    select{
+        option{
+            padding: var(--space-sm) 0;
+            color: var(--theme);
+        }
+    }
+
+    label{
+        &.input-file{
+            //background:white;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+
+            img{
+                max-width: 200px;
+
+                &.active{
+                    transition: all .45s;
+                    border: 1px solid rgba(255, 20, 53, .15); 
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+
+    input{
+        &[type="file"]{
+            display: none;
+        }
+
+        &[type="submit"]{
+            cursor: pointer;
+            border: 0;
+        }
+    }
+
+    .rating{
+        display: flex;
+        padding: 0 var(--space-sm);
+        margin: 0 var(--space-sm);
+        width: 50%;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid rgba(32, 33, 37, .15);
+        max-height: 47px;
+
+        label{
+            display: block;
+            width: 20px;
+            height: 20px;
+            padding: 0;
+            border: 0;
+
+            &.active{
+                svg{
+                    fill: #ff1435;
+                }
+            }
+        }
+
+        input{
+            &[type="checkbox"]{
+                display: none;
+            }
+        }
+
+        svg{
+
+            width: 100%;
+            fill:transparent;
+            pointer-events: none;
+
+            path{
+                stroke: #ff1435;
+                stroke-width: 45px;
+                transform: scale(.85) translateY(25px);
+                pointer-events: none;
+            }
+        }
+    }
+}
