@@ -13,7 +13,7 @@
         }
         .all_offers {
             display: flex;
-            align-items: end;
+            align-items: flex-end;
             a {
                 color: #fff;
                 text-decoration: none;
@@ -25,7 +25,6 @@
         list-style: none;
         display: flex;
         justify-content: space-between;
-        padding: 0;
         margin: 0;
         .card_offers {
             width: 20%;
