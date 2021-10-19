@@ -1,0 +1,9 @@
+@keyframes changeColor {
+    from {
+        filter:brightness(0);
+    }
+  
+    to {
+        filter:brightness(100);
+    }
+}

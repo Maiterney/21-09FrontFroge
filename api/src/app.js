@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const routExample = require('@routes/routexample');
+const routBanner = require('@routes/routBanner');
+const routOffer = require('@routes/routOffer');
+const routDestination = require('@routes/routDestination');
 
 app.use(cors());
 
@@ -17,7 +19,9 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-app.use(routExample);
+app.use('/banners', routBanner);
+app.use('/offers', routOffer);
+app.use('/destinations', routDestination);
 
 app.use('*', (req, res) => {
     res.status(404).json({ err: 'rout does not exists'});

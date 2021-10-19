@@ -14,7 +14,7 @@ const Destination = sequelize.define("Destination", {
         allowNull: true
     },
     destinationPrice: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: true
     },
     destinationSize: {

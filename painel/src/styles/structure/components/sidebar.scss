@@ -1,0 +1,64 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+
+    div{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .active{
+        transition: all .45s;
+
+        &.this-link{
+            transition: all .45s;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            &:before{
+                content: '';
+                width: 5px;
+                height: 5px;
+                border-radius: 5px;
+                background: #ff1435;
+            }
+        }
+
+        img{
+            &.type-link{
+                transition: all .45s;
+                animation-name: changeColor;
+                animation-duration: 1s;
+                animation-delay: .5s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+            }
+        }
+
+        span{
+            &.type-link{
+                transition: all .45s;
+                padding: var(--space-sm);
+            }
+        }
+
+    }
+
+    img{
+        &.type-link{
+            transition: all .45s;
+            max-width: 50px;
+            margin: var(--space-md) auto;
+        }
+    }
+
+    span{
+        &.type-link{
+            transition: all .45s;
+            margin: var(--space-sm) 0;
+            padding: var(--space-sm) 0;
+        }
+    }
+}

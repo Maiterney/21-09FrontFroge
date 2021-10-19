@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-export const Dashboard = () => {
+const Dashboard = () => {
 
     const [ asset, setAsset ] = useState({});
     const [ posted, setPosted ] = useState(false);
@@ -42,22 +42,13 @@ export const Dashboard = () => {
               <h1> Cadastrado com sucesso! </h1>
           </div>
         )
-      }
+    }
 
     return (
-        <section className="sendBanner">
-            <div className="form-controller">
-                <form onSubmit={handleSubmit}>
-                    <input type="text" onChange={handledChange} placeholder="Título do banner" name="title"  required/>
-                    <select type="text" onChange={handledChange} placeholder="Tipo de banner" name="chose" required> 
-                        <option value="full"> Banner Completo </option>
-                        <option value="half"> Banner Lateral </option>
-                    </select>
-                    <input type="file" id="files" onChange={handledChange} name="image" required/>
-                    <textarea name="description" onChange={handledChange} placeholder="Descrição" cols="30" rows="10" required/>
-                    <input type="submit" value="Opa" />
-                </form>
-            </div>
+        <section className="dashboard-controller">
+            <h1>Dashboard</h1>
         </section>
     )
 }
+
+export default Dashboard;

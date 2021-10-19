@@ -18,11 +18,11 @@ const Offer = sequelize.define("Offer", {
         allowNull: true
     },
     offerRating: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: true
     },
     offerPrice: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: true
     },
     offerDescription: {
