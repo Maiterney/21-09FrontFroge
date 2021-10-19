@@ -21,14 +21,14 @@ const Banner = sequelize.define("Banner", {
         type: DataTypes.STRING,
         allowNull: true
     },
-    bannerPrice: {
-        type: DataTypes.STRING,
-        allowNull: true
-    },
-    bannerInfo: {
-        type: DataTypes.STRING,
-        allowNull: true
-    },
+    // bannerPrice: {
+    //     type: DataTypes.STRING,
+    //     allowNull: true
+    // },
+    // bannerInfo: {
+    //     type: DataTypes.STRING,
+    //     allowNull: true
+    // },
     bannerDescription: {
         type: DataTypes.TEXT,
         allowNull: true

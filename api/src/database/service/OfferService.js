@@ -34,6 +34,22 @@ exports.addOffer = async (
     }
 }
 
+exports.callOffers = async () => {
+    try{
+
+        const result = await database.sync();
+
+        const callOffers = await Offer.findAll();
+
+        return callOffers;
+
+    } catch ( error ) {
+
+        console.log( error );
+
+    }
+}
+
 exports.callThisOffer = async ( offerId ) => {
     try{
 

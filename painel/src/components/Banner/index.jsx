@@ -20,7 +20,7 @@ const Banner = () => {
 
         console.log('data:', data, 'assets:', asset);
       
-        axios.post('http://localhost:5000/banners/cadastrar', data, {
+        axios.post('https://frontfroge2109.herokuapp.com/banners/cadastrar', data, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }

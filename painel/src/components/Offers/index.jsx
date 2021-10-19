@@ -47,9 +47,16 @@ const Offers = () => {
 
         //target.classList.toggle('active');
 
-        for(let rate = 0; rate <= Totalratings-1; rate++){
-            currentRating[rate].classList.toggle('active');
+        if(Totalratings == 1){
+            currentRating[0].classList.toggle('active');
+        } else if (Totalratings == 2){
+            (currentRating[0].classList.contains('active')) ? '' : currentRating[0].classList.add('active');
+            currentRating[1].classList.toggle('active');
         }
+
+        // for(let rate = 0; rate <= Totalratings-1; rate++){
+        //     currentRating[rate].classList.toggle('active');
+        // }
 
         setAsset({
             ...asset,

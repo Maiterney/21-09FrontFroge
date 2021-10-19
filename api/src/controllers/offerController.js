@@ -48,21 +48,21 @@ exports.createItem = async (req, res, next) => {
 }
 
 exports.getItems = async (req, res) => {
-    const ListOffers = await OfferService.callBanners();
+    const ListOffers = await OfferService.callOffers();
     res.status(200).json({
         ListOffers: ListOffers
     });
 }
 
 exports.getThisItem = async (req, res) => {
-    const Offer = await OfferService.callThisBanner(req.params.id);
+    const Offer = await OfferService.callThisOffer(req.params.id);
     res.status(200).json({
         Offer: Offer
     })
 }
 
 exports.destroyThisItem = async (req, res) => {
-    const Offer = await OfferService.deleteThisBanner(req.params.id);
+    const Offer = await OfferService.deleteThisOffer(req.params.id);
     let id = req.params.id;
     res.status(200).json({
         Offer: `Offer ${id} has been deleted`

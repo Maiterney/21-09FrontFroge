@@ -1,10 +1,13 @@
 require('dotenv').config();
 const fs = require('fs');
 
-exports.getListBanners = (req, res) => {
-    const directoryPath = __basedir + "/src/static/assets/uploads/banners";
+exports.bannersMidiaList = (req, res) => {
+    const directoryPath = __basedir + "/src/static/assets/uploads/banners/";
   
-    fs.readdir(directoryPath, function (err, files) {
+    fs.readdir(directoryPath, function (err, midias) {
+
+      console.log(midias);
+
       if (err) {
         res.status(500).send({
           message: "Unable to scan files!",
@@ -13,10 +16,10 @@ exports.getListBanners = (req, res) => {
   
       let fileInfos = [];
   
-      files.forEach((file) => {
+      midias.forEach((midia) => {
         fileInfos.push({
-          name: file,
-          url: process.env.BASE_URL + file,
+          name: midia,
+          url: process.env.BASE_URL + '/banners/midia' + midia,
         });
       });
   
@@ -26,7 +29,7 @@ exports.getListBanners = (req, res) => {
 
 exports.importBanner = (req, res) => {
     const fileName = req.params.name;
-    const directoryPath = __basedir + "/src/static/assets/uploads/banners";
+    const directoryPath = __basedir + "/src/static/assets/uploads/banners/";
 
     var img = fs.readFileSync(directoryPath + fileName);
 
@@ -60,7 +63,7 @@ exports.importBanner = (req, res) => {
 
 exports.downloadBanner = (req, res) => {
     const fileName = req.params.name;
-    const directoryPath = __basedir + "/src/static/assets/uploads/banners";
+    const directoryPath = __basedir + "/src/static/assets/uploads/banners/";
   
     res.download(directoryPath + fileName, fileName, (err) => {
       if (err) {
@@ -73,8 +76,8 @@ exports.downloadBanner = (req, res) => {
   
 
 
-exports.getListOffers = (req, res) => {
-  const directoryPath = __basedir + "/src/static/assets/uploads/offers";
+exports.offersMidiaList = (req, res) => {
+  const directoryPath = __basedir + "/src/static/assets/uploads/offers/";
 
   fs.readdir(directoryPath, function (err, files) {
     if (err) {
@@ -88,7 +91,7 @@ exports.getListOffers = (req, res) => {
     files.forEach((file) => {
       fileInfos.push({
         name: file,
-        url: process.env.BASE_URL + file,
+        url: process.env.BASE_URL + '/offers/midia' + file,
       });
     });
 
@@ -98,7 +101,7 @@ exports.getListOffers = (req, res) => {
 
 exports.importOffers = (req, res) => {
   const fileName = req.params.name;
-  const directoryPath = __basedir + "/src/static/assets/uploads/offers";
+  const directoryPath = __basedir + "/src/static/assets/uploads/offers/";
 
   var img = fs.readFileSync(directoryPath + fileName);
 
@@ -132,7 +135,7 @@ exports.importOffers = (req, res) => {
 
 exports.downloadOffers = (req, res) => {
   const fileName = req.params.name;
-  const directoryPath = __basedir + "/src/static/assets/uploads/offers";
+  const directoryPath = __basedir + "/src/static/assets/uploads/offers/";
 
   res.download(directoryPath + fileName, fileName, (err) => {
     if (err) {
@@ -143,8 +146,8 @@ exports.downloadOffers = (req, res) => {
   });
 };
 
-exports.getListDestinations = (req, res) => {
-  const directoryPath = __basedir + "/src/static/assets/uploads/destinations";
+exports.destinationsMidiaList = (req, res) => {
+  const directoryPath = __basedir + "/src/static/assets/uploads/destinations/";
 
   fs.readdir(directoryPath, function (err, files) {
     if (err) {
@@ -158,7 +161,7 @@ exports.getListDestinations = (req, res) => {
     files.forEach((file) => {
       fileInfos.push({
         name: file,
-        url: process.env.BASE_URL + file,
+        url: process.env.BASE_URL + '/destinations/midia' +  file,
       });
     });
 
@@ -168,7 +171,7 @@ exports.getListDestinations = (req, res) => {
 
 exports.importDestinations = (req, res) => {
   const fileName = req.params.name;
-  const directoryPath = __basedir + "/src/static/assets/uploads/destinations";
+  const directoryPath = __basedir + "/src/static/assets/uploads/destinations/";
 
   var img = fs.readFileSync(directoryPath + fileName);
 
@@ -202,7 +205,7 @@ exports.importDestinations = (req, res) => {
 
 exports.downloadDestinations = (req, res) => {
   const fileName = req.params.name;
-  const directoryPath = __basedir + "/src/static/assets/uploads/destinations";
+  const directoryPath = __basedir + "/src/static/assets/uploads/destinations/";
 
   res.download(directoryPath + fileName, fileName, (err) => {
     if (err) {

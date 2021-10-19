@@ -8,7 +8,7 @@ exports.createItem = async (req, res, next) => {
     let data = JSON.parse(bannerdata);
     const { chose, title, description } = data;
 
-    let bsrc = req.file.originalname;
+    let bsrc = 'banner_'+req.file.originalname;
 
     if(chose != '' && title != '' && description != ''){
         await BannerService.addBanner(

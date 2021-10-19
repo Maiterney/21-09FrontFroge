@@ -4,14 +4,14 @@ const item = require('../controllers/destinationController');
 const fileController = require('../controllers/filesController');
 const UploadDestination = require('../middlewares/DestinationUpload');
 
-router.post('/cadastrar', UploadDestination, item.createItem);
+router.get('/midia', fileController.destinationsMidiaList);
+router.get('/midia/:name', fileController.importDestinations);
+router.get('/midia/:name/download', fileController.downloadDestinations);
 
 router.get('/listar', item.getItems);
 router.get('/:id', item.getThisItem)
 router.get('/destroy/:id', item.destroyThisItem);
 
-router.get('/files', fileController.getListDestinations);
-router.get('/files/:name', fileController.importDestinations);
-router.get('/files/:name/download', fileController.downloadDestinations);
+router.post('/cadastrar', UploadDestination, item.createItem);
 
 module.exports = router;
