@@ -19,7 +19,7 @@ exports.bannersMidiaList = (req, res) => {
       midias.forEach((midia) => {
         fileInfos.push({
           name: midia,
-          url: process.env.BASE_URL + '/banners/midia' + midia,
+          url: process.env.BASE_URL + '/banners/midia/' + midia,
         });
       });
   
@@ -91,7 +91,7 @@ exports.offersMidiaList = (req, res) => {
     files.forEach((file) => {
       fileInfos.push({
         name: file,
-        url: process.env.BASE_URL + '/offers/midia' + file,
+        url: process.env.BASE_URL + '/offers/midia/' + file,
       });
     });
 
@@ -161,7 +161,7 @@ exports.destinationsMidiaList = (req, res) => {
     files.forEach((file) => {
       fileInfos.push({
         name: file,
-        url: process.env.BASE_URL + '/destinations/midia' +  file,
+        url: process.env.BASE_URL + '/destinations/midia/' +  file,
       });
     });
 
